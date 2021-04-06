@@ -16,7 +16,7 @@ I went into the recovery mode (using `adb reboot recovery` from my pc), hoping i
 
 While trying some other random things, I executed `adb reboot bootloader`, which usually reboots the phone in a weird way, and gives access to something different from normal Android, and the recovery. I supposed it would give me some kind of fastboot mode or odin mode, which are other ways to send updates on most phones. I would maybe have the capability to unlock the tablet, and upload my own updates.
 
-However, all I saw was a black screen. As it was supposed to be some kind of reboot, and not a shutdown, I wired it to my Linux PC, and ran `lsusb` to show what devices are connected:
+However, all I saw was a black screen. As it was supposed to be some kind of reboot, and not a shutdown, I wired it to my Linux PC, and ran `lsusb` to see if I could talk with it:
 ```bash
 $ lsusb
 Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
@@ -26,12 +26,12 @@ Bus 001 Device 018: ID 2207:310d Fuzhou Rockchip Electronics Company RK3126 in M
 Bus 003 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 ```
 
-ROM is the acronym for the memory of a device, and stand for Read-Only Memory, but it is usually writable anyway, so it is often used to refer to the software which runs on an Android device. "Stock ROM" refers to the official software created by the manufacturer of the device, while "Custom ROM" refers to a ROM created by anyone else. LineageOS and GrapheneOS are examples of custom ROMs for Android phones.
+ROM is the memory a device, and stand for Read-Only Memory, but it is usually writable anyway, so it is often used to refer to the Android software which runs on the device. "Stock ROM" refers to the official software created by the manufacturer of the device, while "Custom ROM" refers to a ROM created by anyone else. LineageOS and GrapheneOS are examples of custom ROMs for Android phones.
 So the device is in `Mask ROM mode`, may I upload my own custom ROM ?
 
 After copy-pasting the name of the device on Qwant, I got on a wiki by [kobol.io]. *Sroll-scroll-scroll* And... it mentions some commands starting with `sudo tools/rkdeveloptool`.
 
-Let's search rkdevelop on the AUR !
+Let's search rkdevelop on the AUR (Arch User Repository, a land of software) !
 ```bash
 $ yay -Ss rkdevelop
 aur/rkdeveloptool 66-1 (+2 0.01)
@@ -183,8 +183,9 @@ This way, anyone should be able to dump my data.
 ## Final thoughts
 
 This tablet is capable of user data encryption. However, using `rkdeveloptool`, anyone could change the system binary so that it saves your password in a file. Moreover, if you set a schema, it can easily be cracked, using [aplc] for example.
+I think I'm going to shred all the data I can on this tablet, and, if you've got a similar one, you should too.
 
-Next step will be to let Linux run on this tablet !
+Next step will be to let *GNU/* Linux run on this tablet !
 
 [root exploits]: https://hernan.de/blog/tailoring-cve-2019-2215-to-achieve-root/
 [kobol.io]: https://wiki.kobol.io/helios64/maskrom/
