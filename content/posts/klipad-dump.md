@@ -1,11 +1,12 @@
 ---
-title: "Dumping user data from chinese tablets in minutes"
+title: "Dumping user data from cheap tablets in minutes"
 date: 2021-04-06
 draft: false
 ---
 
 Hey!
-So I recently found a Klipad, which was waiting somewhere in my house. It seemed kinda sus as it is a chinese tablet.
+So I recently found a Klipad, which was waiting somewhere in my house.
+It is a cheap, tiny tablet, and I wanted to tinker a bit with it.
 I then decided to somewhat root it, or even install *GNU/* Linux on it.
 As it is running Android 8.1.0 and didn't receive any security patches since something like September 2019, exploit-db.com gave me some ideas of [root exploits].
 However, that would not be the simplest way to install *GNU/* Linux, if it is even possible without breaking everything.
@@ -186,6 +187,7 @@ This tablet is capable of user data encryption. However, using `rkdeveloptool`, 
 I think I'm going to shred all the data I can on this tablet, and, if you've got a similar one, you should too.
 
 Next step will be to let *GNU/* Linux run on this tablet !
+*postmarketOS vibes*
 
 [root exploits]: https://hernan.de/blog/tailoring-cve-2019-2215-to-achieve-root/
 [kobol.io]: https://wiki.kobol.io/helios64/maskrom/
