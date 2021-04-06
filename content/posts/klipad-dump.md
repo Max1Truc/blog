@@ -189,6 +189,10 @@ I think I'm going to shred all the data I can on this tablet, and, if you've got
 Next step will be to let *GNU/* Linux run on this tablet !
 *postmarketOS vibes*
 
+PS:
+ - Seems like the PineBook Pro has a similar boot process, I might use its postmarketOS wiki page as a starting point
+ - If you've got any tips on making Linux work on this tablet, feel free to contact me ( max1truc (at) disroot.org )
+
 [root exploits]: https://hernan.de/blog/tailoring-cve-2019-2215-to-achieve-root/
 [kobol.io]: https://wiki.kobol.io/helios64/maskrom/
 [digging on rockchip linux kernel]: https://github.com/rockchip-linux/kernel/blob/82c9666cb6fe999eb61f23c2c9d0d5dad7332fb6/drivers/mtd/cmdlinepart.c#L23
