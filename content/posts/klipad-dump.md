@@ -187,11 +187,9 @@ This tablet is capable of user data encryption. However, using `rkdeveloptool`, 
 I think I'm going to shred all the data I can on this tablet, and, if you've got a similar one, you should too.
 
 Next step will be to let *GNU/* Linux run on this tablet !
-*postmarketOS vibes*
+Seems like the PineBook Pro has a similar processor and boot process, I might use its postmarketOS wiki page as a starting point.
 
-PS:
- - Seems like the PineBook Pro has a similar boot process, I might use its postmarketOS wiki page as a starting point
- - If you've got any tips on making Linux work on this tablet, feel free to contact me ( max1truc (at) disroot.org )
+PS: If you've got any tips on making Linux work on this tablet, feel free to contact me ( max1truc (at) disroot.org )
 
 [root exploits]: https://hernan.de/blog/tailoring-cve-2019-2215-to-achieve-root/
 [kobol.io]: https://wiki.kobol.io/helios64/maskrom/
