@@ -6,7 +6,19 @@
     <description></description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 06 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://blogdraft.maxence.site/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 03 May 2021 18:29:31 +0200</lastBuildDate><atom:link href="https://blogdraft.maxence.site/posts/index.xml" rel="self" type="application/rss+xml" />
+      <item>
+        <title>FCSC - Le Rustique V2</title>
+        <link>https://blogdraft.maxence.site/posts/fcsc-le-rustique-v2/</link>
+        <pubDate>Mon, 03 May 2021 18:29:31 +0200</pubDate>
+        
+        <guid>https://blogdraft.maxence.site/posts/fcsc-le-rustique-v2/</guid>
+        <description>Hey, so I am a beginner in cyber security, but I participated to the FCSC 2021.
+I love Rust, and this CTF greeted me with a challenge in misc category around Rust, giving 500 points (the biggest score for a challenge :D).
+So, let&amp;rsquo;s see how I pwned it!
+This challenge is actually a website, which, given a program, tries to compile it in a directory related to your session cookie and never executes it.</description>
+      </item>
+    
       <item>
         <title>Dumping user data from cheap tablets in minutes</title>
         <link>https://blogdraft.maxence.site/posts/klipad-dump/</link>

