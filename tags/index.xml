@@ -2,9 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Max1Truc&#39;s blog</title>
-    <link>https://blogdraft.maxence.site/tags/</link>
+    <link>https://blog.m1t.re/tags/</link>
     <description></description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://blogdraft.maxence.site/tags/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://blog.m1t.re/tags/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
