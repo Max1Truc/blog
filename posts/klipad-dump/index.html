@@ -3,7 +3,7 @@
   <head prefix="og: http://ogp.me/ns#">
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="generator" content="Hugo 0.83.1">
+<meta name="generator" content="Hugo 0.99.1">
 <meta name="theme" content="Color Your World -- gitlab.com/rmaguiar/hugo-theme-color-your-world">
 
 
@@ -37,7 +37,6 @@
 
 
 <meta name="robots" content="index follow">
-<meta name="referrer" content="no-referrer-when-downgrade">
 
 
 
@@ -108,13 +107,6 @@
 
 
 
-
-
-
-
-
-
-
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -149,7 +141,7 @@
 
 
 
-<link rel="stylesheet" href="/css/main.min.css">
+<link rel="stylesheet" href="https://blog.m1t.re/css/main.min.1b397ce64f949bf1c8ebbbaebab50c4d68060e934f84b36d4e4af4b516c1f0d0.css" integrity="sha256-Gzl85k&#43;Um/HI67uuurUMTWgGDpNPhLNtTkr0tRbB8NA=" crossorigin="anonymous">
 
 
 
@@ -163,40 +155,17 @@
     <meta name="theme-color" content="#225670" media="(prefers-color-scheme: light)">
   
 
-  <style>
   
-    html {
-      --accent: #27a41c;
-    }
-  
-    .req-js {
-      display: none;
-    }
-    
-  </style>
-  
+  <link rel="stylesheet" href="https://blog.m1t.re/css/noscript.min.65e216182061335f5caa599405748fcec74795af39001c5290f5fdca108f4750.css" integrity="sha256-ZeIWGCBhM19cqlmUBXSPzsdHla85ABxSkPX9yhCPR1A=" crossorigin="anonymous">
+
 </noscript>
 
 
 
-
-
-
-  <link rel="preload" href="/fonts/open-sans-v17-latin-700.woff" as="font" crossorigin="anonymous">
-
-  <link rel="preload" href="/fonts/open-sans-v17-latin-700.woff2" as="font" crossorigin="anonymous">
-
-  <link rel="preload" href="/fonts/open-sans-v17-latin-italic.woff" as="font" crossorigin="anonymous">
-
-  <link rel="preload" href="/fonts/open-sans-v17-latin-italic.woff2" as="font" crossorigin="anonymous">
-
-  <link rel="preload" href="/fonts/open-sans-v17-latin-regular.woff" as="font" crossorigin="anonymous">
-
-  <link rel="preload" href="/fonts/open-sans-v17-latin-regular.woff2" as="font" crossorigin="anonymous">
-
-  <link rel="preload" href="/fonts/oswald-v29-latin-700.woff" as="font" crossorigin="anonymous">
-
-  <link rel="preload" href="/fonts/oswald-v29-latin-700.woff2" as="font" crossorigin="anonymous">
+<link rel="preload" href="/fonts/open-sans-v17-latin-700.woff2" as="font" crossorigin="anonymous">
+<link rel="preload" href="/fonts/open-sans-v17-latin-italic.woff2" as="font" crossorigin="anonymous">
+<link rel="preload" href="/fonts/open-sans-v17-latin-regular.woff2" as="font" crossorigin="anonymous">
+<link rel="preload" href="/fonts/oswald-v29-latin-700.woff2" as="font" crossorigin="anonymous">
 
 
 
@@ -208,203 +177,13 @@
 
 
 
-
-
-
-
-
-  <script>
-    
-      'use strict';
-
-// Get default accent colors
-
-
-
-// Get CSS transition
-
-
-// =================================================
-// Mode switcher + Custom accent color
-// Based on: https://gist.github.com/regpaq/04c67e8aceecbf0fd819945835412d1f
-// =================================================
-
-
-  // New prefers-color-scheme media query to detect OS light/dark mode setting
-  const PREFERS_LIGHT = window.matchMedia('(prefers-color-scheme: light)');
-  const PREFERS_DARK = window.matchMedia('(prefers-color-scheme: dark)');
-
-
-const ROOT = document.documentElement;
-
-const SHEET = document.documentElement.style;
-const META_THEME_COLOR = document.querySelector('meta[name=theme-color]');
-
-// Set the dark
-function setDark() {
-  ROOT.dataset.mode = 'dark'
-};
-
-// Set the light
-function setLight() {
-  ROOT.dataset.mode = 'light'
-};
-
-// Initialization triggers light/dark mode based on prior preference, then OS setting
-// And yes, I know 'true' here is a string
-if(localStorage.getItem('isDark') == 'true') {
-  setDark()
-} else if(localStorage.getItem('isDark') == 'false') {
-  setLight()
-
-  
-    } else if(PREFERS_DARK.matches) {
-      setDark()
-    } else if(PREFERS_LIGHT.matches) {
-      setLight()
-  
-
-};
-
-
-
-
-// TODO
-// Maybe I should rethink this ...
-function getAccent() {
-  if (ROOT.dataset.mode === 'dark') {
-  
-    if (localStorage.getItem('darkAccent') === null) {
-      
-      
-      
-      var currentAccent = "#27a41c"
-    } else {
-    
-      var currentAccent = localStorage.getItem('darkAccent')
-      
-      
-      
-    }
-  } else if (ROOT.dataset.mode === 'light') {
-
-    if (localStorage.getItem('lightAccent') === null) {
-  
-      
-      
-
-      var currentAccent = "#225670"
-    } else {
-      var currentAccent = localStorage.getItem('lightAccent')
-      
-      
-      
-    }
-  };
-  
-  return currentAccent
-};
-
-var activeAccent = getAccent();
-
-// Set the active accent color for these right after setting mode color
-// Should mitigate any flickering
-SHEET.setProperty('--accent', activeAccent);
-
-// Also meta-theme cuz, why not
-META_THEME_COLOR.setAttribute('content', activeAccent);
-
-
-function updateAccent() {
-  var activeAccent = getAccent();
-
-  SHEET.setProperty('--accent', activeAccent);
-  PALETTE.value = activeAccent;
-  META_THEME_COLOR.setAttribute('content', activeAccent);
-};
-
-
-document.addEventListener('DOMContentLoaded', function () {
-
-  // Update the color picker with the active accent color 
-  PALETTE.value = activeAccent;
-
-  // Smooth transition, only when changing modes (and not loading pages)
-  function smoothTransition() {
-    document.body.style.transition 
-    = document.querySelector('header').style.transition
-    = document.querySelector('footer').style.transition
-    = 'background-color .3s ease, color .3s ease'
-  };
-  
-  // Give the user a choice
-  function userModeChange() {
-  
-    smoothTransition();
-
-    if (ROOT.dataset.mode == 'light') {
-      setDark();
-      localStorage.setItem('isDark', 'true')
-
-      
-      
-    } else {
-      setLight();
-      localStorage.setItem('isDark', 'false')
-      
-      
-      
-    };
-    
-    updateAccent()
-  };
-
-  
-  // TEST
-  // Keyboard shortcut for mode change, here for testing purposes only
-  // CTRL + ALT + M
-  
 
 
   
   
-    // Runs when OS changes light/dark mode. Changes only if you were on default
-    // color state (light on light mode, dark on dark mode).
-    function OSModeChange() {
-    
-      smoothTransition();
-      
-      if (PREFERS_LIGHT.matches) {
-        setLight();
-        localStorage.setItem('isDark', 'false')
-
-        
-        
-      } else if (PREFERS_DARK.matches) {
-        setDark();
-        localStorage.setItem('isDark', 'true')
-        
-        
-      };
-      
-      updateAccent()
-    };
-
-    // Listeners for when you change OS setting for light/dark mode
-    PREFERS_LIGHT.addListener(OSModeChange);
-    PREFERS_DARK.addListener(OSModeChange);
-  
-  
-  
-  // Mode change button
-  document.querySelector('footer button')
-    .addEventListener('click', userModeChange)
-})
-
-    
-  </script>
 
 
+<script src="https://blog.m1t.re/js/main.d6cc48a696b5e4d818626f6754402c04658f79d8cf5a04dabe8f318dc242d4a7.js" integrity="sha256-1sxIppa15NgYYm9nVEAsBGWPedjPWgTavo8xjcJC1Kc=" crossorigin="anonymous"></script>
 
   </head>
 
@@ -486,6 +265,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+
+
+
 <p>Hey!
 So I recently found a Klipad, which was waiting somewhere in my house.
 It is a cheap, tiny tablet, and I wanted to tinker a bit with it.
@@ -497,102 +279,110 @@ However, that would not be the simplest way to install <em>GNU/</em> Linux, if i
 
 
 
-  <h2 id="trying-stuff"><a class="anchor" href="#trying-stuff" title='Anchor for "Trying stuff".'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> Trying stuff</h2> 
+
+
+
+
+  <h2 id="trying-stuff"><a class="anchor" href="#trying-stuff" title='Anchor for: Trying stuff.'><svg aria-hidden="true"><use xlink:href="/img/bundle.min.ae45e7a9a0a65150dd900a58f35fe84d.svg#hashtag"/></svg></a> Trying stuff</h2> 
 
 <p>I went into the recovery mode (using <code>adb reboot recovery</code> from my pc), hoping it doesn&rsquo;t require a signature when flashing updates, and it did require it. Signatures are a way for the device to verify that the updates it gets are from its manufacturer. I could not create DIY updates to do anything I wanted.</p>
 <p>While trying some other random things, I executed <code>adb reboot bootloader</code>, which usually reboots the phone in a weird way, and gives access to something different from normal Android, and the recovery. I supposed it would give me some kind of fastboot mode or odin mode, which are other ways to send updates on most phones. I would maybe have the capability to unlock the tablet, and upload my own updates.</p>
 <p>However, all I saw was a black screen. As it was supposed to be some kind of reboot, and not a shutdown, I wired it to my Linux PC, and ran <code>lsusb</code> to see if I could talk with it:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ lsusb
-Bus <span style="color:#ae81ff">002</span> Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
-<span style="color:#f92672">[</span>...<span style="color:#f92672">]</span>
-Bus <span style="color:#ae81ff">001</span> Device 018: ID 2207:310d Fuzhou Rockchip Electronics Company RK3126 in Mask ROM mode
-<span style="color:#f92672">[</span>...<span style="color:#f92672">]</span>
-Bus <span style="color:#ae81ff">003</span> Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
-</code></pre></div><p>ROM is the memory a device, and stand for Read-Only Memory, but it is usually writable anyway, so it is often used to refer to the Android software which runs on the device. &ldquo;Stock ROM&rdquo; refers to the official software created by the manufacturer of the device, while &ldquo;Custom ROM&rdquo; refers to a ROM created by anyone else. LineageOS and GrapheneOS are examples of custom ROMs for Android phones.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ lsusb
+</span></span><span style="display:flex;"><span>Bus <span style="color:#ae81ff">002</span> Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>...<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>Bus <span style="color:#ae81ff">001</span> Device 018: ID 2207:310d Fuzhou Rockchip Electronics Company RK3126 in Mask ROM mode
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>...<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>Bus <span style="color:#ae81ff">003</span> Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+</span></span></code></pre></div><p>ROM is the memory a device, and stand for Read-Only Memory, but it is usually writable anyway, so it is often used to refer to the Android software which runs on the device. &ldquo;Stock ROM&rdquo; refers to the official software created by the manufacturer of the device, while &ldquo;Custom ROM&rdquo; refers to a ROM created by anyone else. LineageOS and GrapheneOS are examples of custom ROMs for Android phones.
 So the device is in <code>Mask ROM mode</code>, may I upload my own custom ROM ?</p>
 <p>After copy-pasting the name of the device on Qwant, I got on a wiki by <a href="https://wiki.kobol.io/helios64/maskrom/">kobol.io</a>. <em>Sroll-scroll-scroll</em> And&hellip; it mentions some commands starting with <code>sudo tools/rkdeveloptool</code>.</p>
 <p>Let&rsquo;s search rkdevelop on the AUR (Arch User Repository, a land of software) !</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ yay -Ss rkdevelop
-aur/rkdeveloptool 66-1 <span style="color:#f92672">(</span>+2 0.01<span style="color:#f92672">)</span>
-    Development tool <span style="color:#66d9ef">for</span> Rockchip SOC
-</code></pre></div><p>So, I can simply install it with <code>yay -S rkdeveloptool</code>. Let&rsquo;s see what it can do.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo rkdeveloptool
-
----------------------Tool Usage ---------------------
-Help:			-h or --help
-Version:		-v or --version
-ListDevice:		ld
-DownloadBoot:		db &lt;Loader&gt;
-UpgradeLoader:		ul &lt;Loader&gt;
-ReadLBA:		rl  &lt;BeginSec&gt; &lt;SectorLen&gt; &lt;File&gt;
-WriteLBA:		wl  &lt;BeginSec&gt; &lt;File&gt;
-WriteLBA:		wlx  &lt;PartitionName&gt; &lt;File&gt;
-WriteGPT:		gpt &lt;gpt partition table&gt;
-WriteParameter:		prm &lt;parameter&gt;
-PrintPartition:		ppt
-EraseFlash:		ef
-TestDevice:		td
-ResetDevice:		rd <span style="color:#f92672">[</span>subcode<span style="color:#f92672">]</span>
-ReadFlashID:		rid
-ReadFlashInfo:		rfi
-ReadChipInfo:		rci
-ReadCapability:		rcb
-PackBootLoader:		pack
-UnpackBootLoader:	unpack &lt;boot loader&gt;
-TagSPL:			tagspl &lt;tag&gt; &lt;U-Boot SPL&gt;
--------------------------------------------------------
-
-$ sudo rkdeveloptool ld
-DevNo<span style="color:#f92672">=</span>1	Vid<span style="color:#f92672">=</span>0x2207,Pid<span style="color:#f92672">=</span>0x310d,LocationID<span style="color:#f92672">=</span>103	Loader
-</code></pre></div><p>Cool, this tool recognizes my tabet.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ yay -Ss rkdevelop
+</span></span><span style="display:flex;"><span>aur/rkdeveloptool 66-1 <span style="color:#f92672">(</span>+2 0.01<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    Development tool <span style="color:#66d9ef">for</span> Rockchip SOC
+</span></span></code></pre></div><p>So, I can simply install it with <code>yay -S rkdeveloptool</code>. Let&rsquo;s see what it can do.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo rkdeveloptool
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>---------------------Tool Usage ---------------------
+</span></span><span style="display:flex;"><span>Help:			-h or --help
+</span></span><span style="display:flex;"><span>Version:		-v or --version
+</span></span><span style="display:flex;"><span>ListDevice:		ld
+</span></span><span style="display:flex;"><span>DownloadBoot:		db &lt;Loader&gt;
+</span></span><span style="display:flex;"><span>UpgradeLoader:		ul &lt;Loader&gt;
+</span></span><span style="display:flex;"><span>ReadLBA:		rl  &lt;BeginSec&gt; &lt;SectorLen&gt; &lt;File&gt;
+</span></span><span style="display:flex;"><span>WriteLBA:		wl  &lt;BeginSec&gt; &lt;File&gt;
+</span></span><span style="display:flex;"><span>WriteLBA:		wlx  &lt;PartitionName&gt; &lt;File&gt;
+</span></span><span style="display:flex;"><span>WriteGPT:		gpt &lt;gpt partition table&gt;
+</span></span><span style="display:flex;"><span>WriteParameter:		prm &lt;parameter&gt;
+</span></span><span style="display:flex;"><span>PrintPartition:		ppt
+</span></span><span style="display:flex;"><span>EraseFlash:		ef
+</span></span><span style="display:flex;"><span>TestDevice:		td
+</span></span><span style="display:flex;"><span>ResetDevice:		rd <span style="color:#f92672">[</span>subcode<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>ReadFlashID:		rid
+</span></span><span style="display:flex;"><span>ReadFlashInfo:		rfi
+</span></span><span style="display:flex;"><span>ReadChipInfo:		rci
+</span></span><span style="display:flex;"><span>ReadCapability:		rcb
+</span></span><span style="display:flex;"><span>PackBootLoader:		pack
+</span></span><span style="display:flex;"><span>UnpackBootLoader:	unpack &lt;boot loader&gt;
+</span></span><span style="display:flex;"><span>TagSPL:			tagspl &lt;tag&gt; &lt;U-Boot SPL&gt;
+</span></span><span style="display:flex;"><span>-------------------------------------------------------
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$ sudo rkdeveloptool ld
+</span></span><span style="display:flex;"><span>DevNo<span style="color:#f92672">=</span>1	Vid<span style="color:#f92672">=</span>0x2207,Pid<span style="color:#f92672">=</span>0x310d,LocationID<span style="color:#f92672">=</span>103	Loader
+</span></span></code></pre></div><p>Cool, this tool recognizes my tabet.
 Wait&hellip; what are these <code>ReadFlashInfo</code> and <code>ReadLBA</code> things ?
 Let&rsquo;s try <code>ReadFlashInfo</code> first:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo rkdeveloptool rfi
-Flash Info:
-	Manufacturer: MICRON, value<span style="color:#f92672">=</span><span style="color:#ae81ff">04</span>
-	Flash Size: <span style="color:#ae81ff">16384</span> MB
-	Flash Size: <span style="color:#ae81ff">33554432</span> Sectors
-	Block Size: <span style="color:#ae81ff">8192</span> KB
-	Page Size: <span style="color:#ae81ff">16</span> KB
-	ECC Bits: <span style="color:#ae81ff">60</span>
-	Access Time: <span style="color:#ae81ff">32</span>
-	Flash CS: Flash&lt;0&gt;
-</code></pre></div><p>Hmmmm&hellip; 33554432 sectors (~= 16 Gib)&hellip; didn&rsquo;t <code>ReadLBA</code> need some sector data ?</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo rkdeveloptool rfi
+</span></span><span style="display:flex;"><span>Flash Info:
+</span></span><span style="display:flex;"><span>	Manufacturer: MICRON, value<span style="color:#f92672">=</span><span style="color:#ae81ff">04</span>
+</span></span><span style="display:flex;"><span>	Flash Size: <span style="color:#ae81ff">16384</span> MB
+</span></span><span style="display:flex;"><span>	Flash Size: <span style="color:#ae81ff">33554432</span> Sectors
+</span></span><span style="display:flex;"><span>	Block Size: <span style="color:#ae81ff">8192</span> KB
+</span></span><span style="display:flex;"><span>	Page Size: <span style="color:#ae81ff">16</span> KB
+</span></span><span style="display:flex;"><span>	ECC Bits: <span style="color:#ae81ff">60</span>
+</span></span><span style="display:flex;"><span>	Access Time: <span style="color:#ae81ff">32</span>
+</span></span><span style="display:flex;"><span>	Flash CS: Flash&lt;0&gt;
+</span></span></code></pre></div><p>Hmmmm&hellip; 33554432 sectors (~= 16 Gib)&hellip; didn&rsquo;t <code>ReadLBA</code> need some sector data ?</p>
 <pre aria-label="Box containing code sample." tabindex=0><code>ReadLBA:		rl  &lt;BeginSec&gt; &lt;SectorLen&gt; &lt;File&gt;
 </code></pre><p>Let&rsquo;s try <code>ReadLBA</code> then !</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ time sudo rkdeveloptool rl <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">33554432</span> image.img
-Read LBA to file <span style="color:#f92672">(</span>100%<span style="color:#f92672">)</span>
-sudo rkdeveloptool rl <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">33554432</span> image.img  8,95s user 18,99s system 3% cpu 14:40,88 total
-</code></pre></div><p>So, approximately 15 minutes to dump 16 GiB, and that&rsquo;s a 16GiB-tablet.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ time sudo rkdeveloptool rl <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">33554432</span> image.img
+</span></span><span style="display:flex;"><span>Read LBA to file <span style="color:#f92672">(</span>100%<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>sudo rkdeveloptool rl <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">33554432</span> image.img  8,95s user 18,99s system 3% cpu 14:40,88 total
+</span></span></code></pre></div><p>So, approximately 15 minutes to dump 16 GiB, and that&rsquo;s a 16GiB-tablet.
 Is it that simple to dump user data ?</p>
 
 
 
 
 
-  <h2 id="how-can-i-read-this-data-"><a class="anchor" href="#how-can-i-read-this-data-" title='Anchor for "How can I read this data ?".'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> How can I read this data ?</h2> 
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ fdisk -l image.img
-Disk image.img: <span style="color:#ae81ff">16</span> GiB, <span style="color:#ae81ff">17179869184</span> bytes, <span style="color:#ae81ff">33554432</span> sectors
-Units: sectors of <span style="color:#ae81ff">1</span> * 512 <span style="color:#f92672">=</span> <span style="color:#ae81ff">512</span> bytes
-Sector size <span style="color:#f92672">(</span>logical/physical<span style="color:#f92672">)</span>: <span style="color:#ae81ff">512</span> bytes / <span style="color:#ae81ff">512</span> bytes
-I/O size <span style="color:#f92672">(</span>minimum/optimal<span style="color:#f92672">)</span>: <span style="color:#ae81ff">512</span> bytes / <span style="color:#ae81ff">512</span> bytes
-</code></pre></div><p>This doesn&rsquo;t look like a normal hard disk or usb drive&hellip;
+
+
+
+  <h2 id="how-can-i-read-this-data-"><a class="anchor" href="#how-can-i-read-this-data-" title='Anchor for: How can I read this data ?.'><svg aria-hidden="true"><use xlink:href="/img/bundle.min.ae45e7a9a0a65150dd900a58f35fe84d.svg#hashtag"/></svg></a> How can I read this data ?</h2> 
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ fdisk -l image.img
+</span></span><span style="display:flex;"><span>Disk image.img: <span style="color:#ae81ff">16</span> GiB, <span style="color:#ae81ff">17179869184</span> bytes, <span style="color:#ae81ff">33554432</span> sectors
+</span></span><span style="display:flex;"><span>Units: sectors of <span style="color:#ae81ff">1</span> * 512 <span style="color:#f92672">=</span> <span style="color:#ae81ff">512</span> bytes
+</span></span><span style="display:flex;"><span>Sector size <span style="color:#f92672">(</span>logical/physical<span style="color:#f92672">)</span>: <span style="color:#ae81ff">512</span> bytes / <span style="color:#ae81ff">512</span> bytes
+</span></span><span style="display:flex;"><span>I/O size <span style="color:#f92672">(</span>minimum/optimal<span style="color:#f92672">)</span>: <span style="color:#ae81ff">512</span> bytes / <span style="color:#ae81ff">512</span> bytes
+</span></span></code></pre></div><p>This doesn&rsquo;t look like a normal hard disk or usb drive&hellip;
 There should be some partitions like &ldquo;system&rdquo; or &ldquo;userdata&rdquo; or &ldquo;boot&rdquo; but it shows nothing.</p>
 <p>Let&rsquo;s manually look at it !</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ dd <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span>image.img count<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span> 2&gt;/dev/null | cat
-PARM?FIRMWARE_VER:7.1
-MACHINE_MODEL:RK3126c
-MACHINE_ID:007
-MANUFACTURER:rk3126c
-MAGIC: 0x5041524B
-ATAG: 0x00200800
-MACHINE: 3126c
-CHECK_MASK: 0x80
-PWR_HLD: 0,0,A,0,1
-CMDLINE: console<span style="color:#f92672">=</span>ttyFIQ0 androidboot.baseband<span style="color:#f92672">=</span>N/A androidboot.veritymode<span style="color:#f92672">=</span>enforcing androidboot.hardware<span style="color:#f92672">=</span>rk30board androidboot.console<span style="color:#f92672">=</span>ttyFIQ0 init<span style="color:#f92672">=</span>/init initrd<span style="color:#f92672">=</span>0x62000000,0x00800000 mtdparts<span style="color:#f92672">=</span>rk29xxnand:0x00002000@0x00002000<span style="color:#f92672">(</span>uboot<span style="color:#f92672">)</span>,0x00002000@0x00004000<span style="color:#f92672">(</span>trust<span style="color:#f92672">)</span>,0x00002000@0x00006000<span style="color:#f92672">(</span>misc<span style="color:#f92672">)</span>,0x00008000@0x00008000<span style="color:#f92672">(</span>resource<span style="color:#f92672">)</span>,0x00010000@0x00010000<span style="color:#f92672">(</span>kernel<span style="color:#f92672">)</span>,0x00010000@0x00020000<span style="color:#f92672">(</span>boot<span style="color:#f92672">)</span>,0x00020000@0x00030000<span style="color:#f92672">(</span>recovery<span style="color:#f92672">)</span>,0x00038000@0x00050000<span style="color:#f92672">(</span>backup<span style="color:#f92672">)</span>,0x00002000@0x00088000<span style="color:#f92672">(</span>security<span style="color:#f92672">)</span>,0x00100000@0x0008a000<span style="color:#f92672">(</span>cache<span style="color:#f92672">)</span>,0x00280000@0x0018a000<span style="color:#f92672">(</span>system<span style="color:#f92672">)</span>,0x00008000@0x0040a000<span style="color:#f92672">(</span>metadata<span style="color:#f92672">)</span>,0x00038000@0x00412000<span style="color:#f92672">(</span>vendor<span style="color:#f92672">)</span>,0x00008000@0x0044a000<span style="color:#f92672">(</span>oem<span style="color:#f92672">)</span>,0x00000400@0x00452000<span style="color:#f92672">(</span>frp<span style="color:#f92672">)</span>,-@0x00452400<span style="color:#f92672">(</span>userdata<span style="color:#f92672">)</span>
-�XX
-</code></pre></div><p>I don&rsquo;t really know what kind of magic (header) <code>PARM</code> is.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ dd <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span>image.img count<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span> 2&gt;/dev/null | cat
+</span></span><span style="display:flex;"><span>PARM?FIRMWARE_VER:7.1
+</span></span><span style="display:flex;"><span>MACHINE_MODEL:RK3126c
+</span></span><span style="display:flex;"><span>MACHINE_ID:007
+</span></span><span style="display:flex;"><span>MANUFACTURER:rk3126c
+</span></span><span style="display:flex;"><span>MAGIC: 0x5041524B
+</span></span><span style="display:flex;"><span>ATAG: 0x00200800
+</span></span><span style="display:flex;"><span>MACHINE: 3126c
+</span></span><span style="display:flex;"><span>CHECK_MASK: 0x80
+</span></span><span style="display:flex;"><span>PWR_HLD: 0,0,A,0,1
+</span></span><span style="display:flex;"><span>CMDLINE: console<span style="color:#f92672">=</span>ttyFIQ0 androidboot.baseband<span style="color:#f92672">=</span>N/A androidboot.veritymode<span style="color:#f92672">=</span>enforcing androidboot.hardware<span style="color:#f92672">=</span>rk30board androidboot.console<span style="color:#f92672">=</span>ttyFIQ0 init<span style="color:#f92672">=</span>/init initrd<span style="color:#f92672">=</span>0x62000000,0x00800000 mtdparts<span style="color:#f92672">=</span>rk29xxnand:0x00002000@0x00002000<span style="color:#f92672">(</span>uboot<span style="color:#f92672">)</span>,0x00002000@0x00004000<span style="color:#f92672">(</span>trust<span style="color:#f92672">)</span>,0x00002000@0x00006000<span style="color:#f92672">(</span>misc<span style="color:#f92672">)</span>,0x00008000@0x00008000<span style="color:#f92672">(</span>resource<span style="color:#f92672">)</span>,0x00010000@0x00010000<span style="color:#f92672">(</span>kernel<span style="color:#f92672">)</span>,0x00010000@0x00020000<span style="color:#f92672">(</span>boot<span style="color:#f92672">)</span>,0x00020000@0x00030000<span style="color:#f92672">(</span>recovery<span style="color:#f92672">)</span>,0x00038000@0x00050000<span style="color:#f92672">(</span>backup<span style="color:#f92672">)</span>,0x00002000@0x00088000<span style="color:#f92672">(</span>security<span style="color:#f92672">)</span>,0x00100000@0x0008a000<span style="color:#f92672">(</span>cache<span style="color:#f92672">)</span>,0x00280000@0x0018a000<span style="color:#f92672">(</span>system<span style="color:#f92672">)</span>,0x00008000@0x0040a000<span style="color:#f92672">(</span>metadata<span style="color:#f92672">)</span>,0x00038000@0x00412000<span style="color:#f92672">(</span>vendor<span style="color:#f92672">)</span>,0x00008000@0x0044a000<span style="color:#f92672">(</span>oem<span style="color:#f92672">)</span>,0x00000400@0x00452000<span style="color:#f92672">(</span>frp<span style="color:#f92672">)</span>,-@0x00452400<span style="color:#f92672">(</span>userdata<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>�XX
+</span></span></code></pre></div><p>I don&rsquo;t really know what kind of magic (header) <code>PARM</code> is.
 However, CMDLINE looks like Linux Kernel parameters !
 Also, I actually see some <code>boot</code>, <code>system</code> and <code>userdata</code> !
 After some <a href="https://github.com/rockchip-linux/kernel/blob/82c9666cb6fe999eb61f23c2c9d0d5dad7332fb6/drivers/mtd/cmdlinepart.c#L23">digging on rockchip linux kernel</a>, I could understand this <code>mtdparams=</code> thing.
@@ -605,44 +395,52 @@ It starts at sector 0x00452400, and, as the offset is a dash (<code>-</code>), i
 
 
 
-  <h2 id="browsing-userdata"><a class="anchor" href="#browsing-userdata" title='Anchor for "Browsing userdata".'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> Browsing userdata</h2> 
+
+
+
+
+  <h2 id="browsing-userdata"><a class="anchor" href="#browsing-userdata" title='Anchor for: Browsing userdata.'><svg aria-hidden="true"><use xlink:href="/img/bundle.min.ae45e7a9a0a65150dd900a58f35fe84d.svg#hashtag"/></svg></a> Browsing userdata</h2> 
 
 <p>As I am on Linux, that&rsquo;s rather simple to mount it as a normal drive.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ dd <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span>image.img skip<span style="color:#f92672">=</span><span style="color:#66d9ef">$((</span><span style="color:#ae81ff">0</span>x00452400<span style="color:#66d9ef">))</span> | file -
-/dev/stdin: F2FS filesystem, UUID<span style="color:#f92672">=</span>adcf4214-0553-4465-944c-bce0017cce5c, volume name <span style="color:#e6db74">&#34;&#34;</span>
-$ sudo mount -r -t f2fs -o loop,offset<span style="color:#f92672">=</span><span style="color:#66d9ef">$((</span><span style="color:#ae81ff">0</span>x00452400 <span style="color:#f92672">*</span> <span style="color:#ae81ff">512</span><span style="color:#66d9ef">))</span> image.img /mnt/
-$ ls /mnt
-adb
-anr
-app
-app-asec
-app-ephemeral
-app-lib
-app-private
-backup
-bootchart
-cache
-camera
-cifsmanager
-dalvik-cache
-data
-drm
-gps
-local
-logs
-lost+found
-media
-<span style="color:#f92672">[</span>...<span style="color:#f92672">]</span>
-</code></pre></div><p>I did create a file <code>hello.txt</code> from Termux on this tablet so let&rsquo;s read it:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo cat /mnt/data/com.termux/files/home/hello.txt
-Hello, World !
-</code></pre></div><p>This way, anyone should be able to dump my data.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ dd <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span>image.img skip<span style="color:#f92672">=</span><span style="color:#66d9ef">$((</span><span style="color:#ae81ff">0</span>x00452400<span style="color:#66d9ef">))</span> | file -
+</span></span><span style="display:flex;"><span>/dev/stdin: F2FS filesystem, UUID<span style="color:#f92672">=</span>adcf4214-0553-4465-944c-bce0017cce5c, volume name <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>$ sudo mount -r -t f2fs -o loop,offset<span style="color:#f92672">=</span><span style="color:#66d9ef">$((</span><span style="color:#ae81ff">0</span>x00452400 <span style="color:#f92672">*</span> <span style="color:#ae81ff">512</span><span style="color:#66d9ef">))</span> image.img /mnt/
+</span></span><span style="display:flex;"><span>$ ls /mnt
+</span></span><span style="display:flex;"><span>adb
+</span></span><span style="display:flex;"><span>anr
+</span></span><span style="display:flex;"><span>app
+</span></span><span style="display:flex;"><span>app-asec
+</span></span><span style="display:flex;"><span>app-ephemeral
+</span></span><span style="display:flex;"><span>app-lib
+</span></span><span style="display:flex;"><span>app-private
+</span></span><span style="display:flex;"><span>backup
+</span></span><span style="display:flex;"><span>bootchart
+</span></span><span style="display:flex;"><span>cache
+</span></span><span style="display:flex;"><span>camera
+</span></span><span style="display:flex;"><span>cifsmanager
+</span></span><span style="display:flex;"><span>dalvik-cache
+</span></span><span style="display:flex;"><span>data
+</span></span><span style="display:flex;"><span>drm
+</span></span><span style="display:flex;"><span>gps
+</span></span><span style="display:flex;"><span>local
+</span></span><span style="display:flex;"><span>logs
+</span></span><span style="display:flex;"><span>lost+found
+</span></span><span style="display:flex;"><span>media
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>...<span style="color:#f92672">]</span>
+</span></span></code></pre></div><p>I did create a file <code>hello.txt</code> from Termux on this tablet so let&rsquo;s read it:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ sudo cat /mnt/data/com.termux/files/home/hello.txt
+</span></span><span style="display:flex;"><span>Hello, World !
+</span></span></code></pre></div><p>This way, anyone should be able to dump my data.</p>
 
 
 
 
 
-  <h2 id="final-thoughts"><a class="anchor" href="#final-thoughts" title='Anchor for "Final thoughts".'><svg aria-hidden="true"><use xlink:href="#hashtag"/></svg></a> Final thoughts</h2> 
+
+
+
+
+  <h2 id="final-thoughts"><a class="anchor" href="#final-thoughts" title='Anchor for: Final thoughts.'><svg aria-hidden="true"><use xlink:href="/img/bundle.min.ae45e7a9a0a65150dd900a58f35fe84d.svg#hashtag"/></svg></a> Final thoughts</h2> 
 
 <p>This tablet is capable of user data encryption. However, using <code>rkdeveloptool</code>, anyone could change the system binary so that it saves your password in a file. Moreover, if you set a schema, it can easily be cracked, using <a href="https://github.com/sch3m4/androidpatternlock">aplc</a> for example.
 I think I&rsquo;m going to shred all the data I can on this tablet, and, if you&rsquo;ve got a similar one, you should too.</p>
@@ -660,9 +458,11 @@ Seems like the PineBook Pro has a similar processor and boot process, I might us
     <footer>
       
 
-  Copyright © 2021 Max1Truc
-<br />
-Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode">CC BY-NC-SA</a>
+
+  
+
+
+
 
 
 
@@ -678,7 +478,7 @@ Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalc
 
 
 <section class="req-js">
-  <button class="outline-dashed" title="Change to light/dark mode."><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><use xlink:href="#adjust"/></svg></button><input class="outline-dashed" type="color" list="presets" value="#27a41c" title="Change accent color." aria-label="Change accent color."><datalist id="presets"><option value="#225670"><option value="#27a41c"><option value="#1f676b"><option value="#f3a530"><option value="#902b37"><option value="#1dbc91"><option value="#754e85"><option value="#7fc121"><option value="#a8314a"><option value="#ff7433"><option value="#3e6728"><option value="#c063bd"></datalist>
+  <button class="outline-dashed" title="Change to light/dark mode."><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><use xlink:href="/img/bundle.min.ae45e7a9a0a65150dd900a58f35fe84d.svg#adjust"/></svg></button><input class="outline-dashed" type="color" list="presets" value="#27a41c" title="Change accent color." aria-label="Change accent color."><datalist id="presets"><option value="#225670"><option value="#27a41c"><option value="#1f676b"><option value="#f3a530"><option value="#902b37"><option value="#1dbc91"><option value="#754e85"><option value="#7fc121"><option value="#a8314a"><option value="#ff7433"><option value="#3e6728"><option value="#c063bd"></datalist>
 </section>
 
 
@@ -687,38 +487,9 @@ Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalc
 
     </footer>
     
-    <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" aria-hidden="true">
-      <symbol viewBox="0 0 512 512" id="adjust">
-        <path d="M8 256c0 136.966 111.033 248 248 248s248-111.034 248-248S392.966 8 256 8 8 119.033 8 256zm248 184V72c101.705 0 184 82.311 184 184 0 101.705-82.311 184-184 184z"/>
-      </symbol>
-      
-      
-      
-      
-  
-<symbol viewBox="0 0 448 512" id="hashtag">
-  <path d="M440.667 182.109l7.143-40c1.313-7.355-4.342-14.109-11.813-14.109h-74.81l14.623-81.891C377.123 38.754 371.468 32 363.997 32h-40.632a12 12 0 0 0-11.813 9.891L296.175 128H197.54l14.623-81.891C213.477 38.754 207.822 32 200.35 32h-40.632a12 12 0 0 0-11.813 9.891L132.528 128H53.432a12 12 0 0 0-11.813 9.891l-7.143 40C33.163 185.246 38.818 192 46.289 192h74.81L98.242 320H19.146a12 12 0 0 0-11.813 9.891l-7.143 40C-1.123 377.246 4.532 384 12.003 384h74.81L72.19 465.891C70.877 473.246 76.532 480 84.003 480h40.632a12 12 0 0 0 11.813-9.891L151.826 384h98.634l-14.623 81.891C234.523 473.246 240.178 480 247.65 480h40.632a12 12 0 0 0 11.813-9.891L315.472 384h79.096a12 12 0 0 0 11.813-9.891l7.143-40c1.313-7.355-4.342-14.109-11.813-14.109h-74.81l22.857-128h79.096a12 12 0 0 0 11.813-9.891zM261.889 320h-98.634l22.857-128h98.634l-22.857 128z"/>
-</symbol>
-
-
-
-      
-      
-      
-    </svg>
-
-    
     
     
 
-      <script>
-        
-          'use strict';const PALETTE=document.querySelector('footer input');PALETTE.onchange=function(){const a=PALETTE.value;SHEET.setProperty('--accent',a),ROOT.dataset.mode==='light'?localStorage.setItem('lightAccent',a):localStorage.setItem('darkAccent',a),updateAccent()}
-        
-      </script>
-
-    
-    
     
     
 

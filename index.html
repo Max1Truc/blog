@@ -3,7 +3,7 @@
   <head prefix="og: http://ogp.me/ns#">
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="generator" content="Hugo 0.83.1">
+<meta name="generator" content="Hugo 0.99.1">
 <meta name="theme" content="Color Your World -- gitlab.com/rmaguiar/hugo-theme-color-your-world">
 
 
@@ -44,7 +44,6 @@
 
 
 <meta name="robots" content="index follow">
-<meta name="referrer" content="no-referrer-when-downgrade">
 
 
 
@@ -102,13 +101,6 @@
 
 
 
-
-
-
-
-
-
-
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -126,7 +118,7 @@
 
 
 
-<link rel="stylesheet" href="/css/main.min.css">
+<link rel="stylesheet" href="https://blog.m1t.re/css/main.min.1b397ce64f949bf1c8ebbbaebab50c4d68060e934f84b36d4e4af4b516c1f0d0.css" integrity="sha256-Gzl85k&#43;Um/HI67uuurUMTWgGDpNPhLNtTkr0tRbB8NA=" crossorigin="anonymous">
 
 
 
@@ -140,40 +132,17 @@
     <meta name="theme-color" content="#225670" media="(prefers-color-scheme: light)">
   
 
-  <style>
   
-    html {
-      --accent: #27a41c;
-    }
-  
-    .req-js {
-      display: none;
-    }
-    
-  </style>
-  
+  <link rel="stylesheet" href="https://blog.m1t.re/css/noscript.min.65e216182061335f5caa599405748fcec74795af39001c5290f5fdca108f4750.css" integrity="sha256-ZeIWGCBhM19cqlmUBXSPzsdHla85ABxSkPX9yhCPR1A=" crossorigin="anonymous">
+
 </noscript>
 
 
 
-
-
-
-  <link rel="preload" href="/fonts/open-sans-v17-latin-700.woff" as="font" crossorigin="anonymous">
-
-  <link rel="preload" href="/fonts/open-sans-v17-latin-700.woff2" as="font" crossorigin="anonymous">
-
-  <link rel="preload" href="/fonts/open-sans-v17-latin-italic.woff" as="font" crossorigin="anonymous">
-
-  <link rel="preload" href="/fonts/open-sans-v17-latin-italic.woff2" as="font" crossorigin="anonymous">
-
-  <link rel="preload" href="/fonts/open-sans-v17-latin-regular.woff" as="font" crossorigin="anonymous">
-
-  <link rel="preload" href="/fonts/open-sans-v17-latin-regular.woff2" as="font" crossorigin="anonymous">
-
-  <link rel="preload" href="/fonts/oswald-v29-latin-700.woff" as="font" crossorigin="anonymous">
-
-  <link rel="preload" href="/fonts/oswald-v29-latin-700.woff2" as="font" crossorigin="anonymous">
+<link rel="preload" href="/fonts/open-sans-v17-latin-700.woff2" as="font" crossorigin="anonymous">
+<link rel="preload" href="/fonts/open-sans-v17-latin-italic.woff2" as="font" crossorigin="anonymous">
+<link rel="preload" href="/fonts/open-sans-v17-latin-regular.woff2" as="font" crossorigin="anonymous">
+<link rel="preload" href="/fonts/oswald-v29-latin-700.woff2" as="font" crossorigin="anonymous">
 
 
 
@@ -185,203 +154,13 @@
 
 
 
-
-
-
-
-
-  <script>
-    
-      'use strict';
-
-// Get default accent colors
-
-
-
-// Get CSS transition
-
-
-// =================================================
-// Mode switcher + Custom accent color
-// Based on: https://gist.github.com/regpaq/04c67e8aceecbf0fd819945835412d1f
-// =================================================
-
-
-  // New prefers-color-scheme media query to detect OS light/dark mode setting
-  const PREFERS_LIGHT = window.matchMedia('(prefers-color-scheme: light)');
-  const PREFERS_DARK = window.matchMedia('(prefers-color-scheme: dark)');
-
-
-const ROOT = document.documentElement;
-
-const SHEET = document.documentElement.style;
-const META_THEME_COLOR = document.querySelector('meta[name=theme-color]');
-
-// Set the dark
-function setDark() {
-  ROOT.dataset.mode = 'dark'
-};
-
-// Set the light
-function setLight() {
-  ROOT.dataset.mode = 'light'
-};
-
-// Initialization triggers light/dark mode based on prior preference, then OS setting
-// And yes, I know 'true' here is a string
-if(localStorage.getItem('isDark') == 'true') {
-  setDark()
-} else if(localStorage.getItem('isDark') == 'false') {
-  setLight()
-
-  
-    } else if(PREFERS_DARK.matches) {
-      setDark()
-    } else if(PREFERS_LIGHT.matches) {
-      setLight()
-  
-
-};
-
-
-
-
-// TODO
-// Maybe I should rethink this ...
-function getAccent() {
-  if (ROOT.dataset.mode === 'dark') {
-  
-    if (localStorage.getItem('darkAccent') === null) {
-      
-      
-      
-      var currentAccent = "#27a41c"
-    } else {
-    
-      var currentAccent = localStorage.getItem('darkAccent')
-      
-      
-      
-    }
-  } else if (ROOT.dataset.mode === 'light') {
-
-    if (localStorage.getItem('lightAccent') === null) {
-  
-      
-      
-
-      var currentAccent = "#225670"
-    } else {
-      var currentAccent = localStorage.getItem('lightAccent')
-      
-      
-      
-    }
-  };
-  
-  return currentAccent
-};
-
-var activeAccent = getAccent();
-
-// Set the active accent color for these right after setting mode color
-// Should mitigate any flickering
-SHEET.setProperty('--accent', activeAccent);
-
-// Also meta-theme cuz, why not
-META_THEME_COLOR.setAttribute('content', activeAccent);
-
-
-function updateAccent() {
-  var activeAccent = getAccent();
-
-  SHEET.setProperty('--accent', activeAccent);
-  PALETTE.value = activeAccent;
-  META_THEME_COLOR.setAttribute('content', activeAccent);
-};
-
-
-document.addEventListener('DOMContentLoaded', function () {
-
-  // Update the color picker with the active accent color 
-  PALETTE.value = activeAccent;
-
-  // Smooth transition, only when changing modes (and not loading pages)
-  function smoothTransition() {
-    document.body.style.transition 
-    = document.querySelector('header').style.transition
-    = document.querySelector('footer').style.transition
-    = 'background-color .3s ease, color .3s ease'
-  };
-  
-  // Give the user a choice
-  function userModeChange() {
-  
-    smoothTransition();
-
-    if (ROOT.dataset.mode == 'light') {
-      setDark();
-      localStorage.setItem('isDark', 'true')
-
-      
-      
-    } else {
-      setLight();
-      localStorage.setItem('isDark', 'false')
-      
-      
-      
-    };
-    
-    updateAccent()
-  };
-
-  
-  // TEST
-  // Keyboard shortcut for mode change, here for testing purposes only
-  // CTRL + ALT + M
-  
 
 
   
   
-    // Runs when OS changes light/dark mode. Changes only if you were on default
-    // color state (light on light mode, dark on dark mode).
-    function OSModeChange() {
-    
-      smoothTransition();
-      
-      if (PREFERS_LIGHT.matches) {
-        setLight();
-        localStorage.setItem('isDark', 'false')
-
-        
-        
-      } else if (PREFERS_DARK.matches) {
-        setDark();
-        localStorage.setItem('isDark', 'true')
-        
-        
-      };
-      
-      updateAccent()
-    };
-
-    // Listeners for when you change OS setting for light/dark mode
-    PREFERS_LIGHT.addListener(OSModeChange);
-    PREFERS_DARK.addListener(OSModeChange);
-  
-  
-  
-  // Mode change button
-  document.querySelector('footer button')
-    .addEventListener('click', userModeChange)
-})
-
-    
-  </script>
 
 
+<script src="https://blog.m1t.re/js/main.d6cc48a696b5e4d818626f6754402c04658f79d8cf5a04dabe8f318dc242d4a7.js" integrity="sha256-1sxIppa15NgYYm9nVEAsBGWPedjPWgTavo8xjcJC1Kc=" crossorigin="anonymous"></script>
 
   </head>
 
@@ -467,6 +246,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+
+
+
       
     
 
@@ -478,9 +260,11 @@ document.addEventListener('DOMContentLoaded', function () {
     <footer>
       
 
-  Copyright © 2021 Max1Truc
-<br />
-Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode">CC BY-NC-SA</a>
+
+  
+
+
+
 
 
 
@@ -496,7 +280,7 @@ Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalc
 
 
 <section class="req-js">
-  <button class="outline-dashed" title="Change to light/dark mode."><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><use xlink:href="#adjust"/></svg></button><input class="outline-dashed" type="color" list="presets" value="#27a41c" title="Change accent color." aria-label="Change accent color."><datalist id="presets"><option value="#225670"><option value="#27a41c"><option value="#1f676b"><option value="#f3a530"><option value="#902b37"><option value="#1dbc91"><option value="#754e85"><option value="#7fc121"><option value="#a8314a"><option value="#ff7433"><option value="#3e6728"><option value="#c063bd"></datalist>
+  <button class="outline-dashed" title="Change to light/dark mode."><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><use xlink:href="/img/bundle.min.ae45e7a9a0a65150dd900a58f35fe84d.svg#adjust"/></svg></button><input class="outline-dashed" type="color" list="presets" value="#27a41c" title="Change accent color." aria-label="Change accent color."><datalist id="presets"><option value="#225670"><option value="#27a41c"><option value="#1f676b"><option value="#f3a530"><option value="#902b37"><option value="#1dbc91"><option value="#754e85"><option value="#7fc121"><option value="#a8314a"><option value="#ff7433"><option value="#3e6728"><option value="#c063bd"></datalist>
 </section>
 
 
@@ -505,33 +289,9 @@ Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalc
 
     </footer>
     
-    <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" aria-hidden="true">
-      <symbol viewBox="0 0 512 512" id="adjust">
-        <path d="M8 256c0 136.966 111.033 248 248 248s248-111.034 248-248S392.966 8 256 8 8 119.033 8 256zm248 184V72c101.705 0 184 82.311 184 184 0 101.705-82.311 184-184 184z"/>
-      </symbol>
-      
-      
-      
-      
-  
-
-      
-      
-      
-    </svg>
-
-    
     
     
 
-      <script>
-        
-          'use strict';const PALETTE=document.querySelector('footer input');PALETTE.onchange=function(){const a=PALETTE.value;SHEET.setProperty('--accent',a),ROOT.dataset.mode==='light'?localStorage.setItem('lightAccent',a):localStorage.setItem('darkAccent',a),updateAccent()}
-        
-      </script>
-
-    
-    
     
     
 
